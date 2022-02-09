@@ -86,6 +86,136 @@
                     </div>
                     <!-- /.col -->
                 </div>
+
+                <h1>Foto Carousel</h1>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($gambar as $g)
+                            <tr>
+                                <td>{{ $g->id_foto }}</td>
+                                <td><img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" width="500">
+                                </td>
+                                <td>
+                                    <a href="/carousel/hapus/{{ $g->id_foto }}"><button
+                                            class="btn btn-danger">Hapus</button></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+
+                </table>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcarousel">
+                    Tambah Foto
+                </button>
+
+                <h1 class="mt-5">Konten About</h1>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Deskripsi</th>
+                            <th scope="col">Client</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($gambar as $g)
+                            <tr>
+                                <td>{{ $g->id_foto }}</td>
+                                <td><img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" width="500">
+                                </td>
+                                <td>Deskripsi</td>
+                                <td>Client</td>
+                                <td>
+                                    <a href="/carousel/hapus/{{ $g->id_foto }}"><button
+                                            class="btn btn-danger">Hapus</button></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+
+                </table>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalabout">
+                    Tambah Konten
+                </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="modal fade" id="modalcarousel" tabindex="-1" aria-labelledby="modalcarouselLabel"
+                    aria-hidden="true">
+                    <form action="/carousel/upload" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalcarouselLabel">Pilih Foto</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" name="foto">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Upload" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="modalaboutLabel"
+                    aria-hidden="true">
+                    <form action="/carousel/upload" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalaboutLabel">Pilih Foto</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" name="foto">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Upload" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <!--/. container-fluid -->
         </section>

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CarouselController;
+use App\Models\Carousel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -14,16 +17,18 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $gambar = Carousel::get();
+    return view('home', ['gambar' => $gambar]);
 });
 
 Route::get('/login', function(){
     return view('auth.login');
 });
 
-Route::get('/admin', function(){
-    return view('admin.home');
-});
+Route::get('/admin', AdminController::class . '@index');
+
+Route::post('/carousel/upload', CarouselController::class . '@proses_upload');
+Route::get('/carousel/hapus/{id_foto}', CarouselController::class . '@hapus');
 
 Auth::routes();
 
