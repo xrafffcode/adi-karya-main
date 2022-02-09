@@ -1,7 +1,6 @@
 <!-- Feature Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        <h1>Kenapa Memilih Kami</h1>
         <div class="row g-5">
             <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
                 <div class="d-flex align-items-center justify-content-between mb-2">
