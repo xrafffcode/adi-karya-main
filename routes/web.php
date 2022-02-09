@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarouselController;
+use App\Models\About;
 use App\Models\Carousel;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
+    $about = About::get();
     $gambar = Carousel::get();
-    return view('home', ['gambar' => $gambar]);
+    
+    return view('home', [
+        'gambar' => $gambar,
+        'about' => $about
+    ]);
 });
 
 Route::get('/login', function(){
@@ -27,8 +33,10 @@ Route::get('/login', function(){
 
 Route::get('/admin', AdminController::class . '@index');
 
-Route::post('/carousel/upload', CarouselController::class . '@proses_upload');
-Route::get('/carousel/hapus/{id_foto}', CarouselController::class . '@hapus');
+Route::post('/carousel/upload', AdminController::class . '@proses_upload_carousel');
+Route::get('/carousel/hapus/{id_foto}', AdminController::class . '@hapus_carousel');
+
+Route::post('/about/upload', AdminController::class . '@proses_upload_about');
 
 Auth::routes();
 

@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <!-- Info boxes -->
                 <div class="row">
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box">
                             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
@@ -42,7 +42,7 @@
                         <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
@@ -59,7 +59,7 @@
                     <!-- fix for small devices only -->
                     <div class="clearfix hidden-md-up"></div>
 
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
@@ -72,7 +72,7 @@
                         <!-- /.info-box -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-12 col-sm-6 col-md-3">
+                    <div class="col-12 col-sm-6">
                         <div class="info-box mb-3">
                             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
@@ -88,7 +88,7 @@
                 </div>
 
                 <h1>Foto Carousel</h1>
-                <table class="table table-striped table-hover">
+                <table class="table table-dark table-striped table-hover">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -116,10 +116,9 @@
                 </button>
 
                 <h1 class="mt-5">Konten About</h1>
-                <table class="table table-striped table-hover">
+                <table class="table table-dark table-striped table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Foto</th>
                             <th scope="col">Deskripsi</th>
                             <th scope="col">Client</th>
@@ -127,14 +126,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($gambar as $g)
+                        @foreach ($about as $a)
                             <tr>
-                                <td>{{ $g->id_foto }}</td>
-                                <td><img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" width="500">
+                                <td><img class="img-fluid" src="{{ url('/foto_about/' . $a->image) }}" width="300">
                                 </td>
-                                <td>Deskripsi</td>
-                                <td>Client</td>
+                                <td>{{ $a->deskripsi }}</td>
+                                <td>{{ $a->client }}</td>
                                 <td>
+                                    <a href="/edit/"><button class="btn btn-success">Edit</button></a>
                                     <a href="/carousel/hapus/{{ $g->id_foto }}"><button
                                             class="btn btn-danger">Hapus</button></a>
                                 </td>
@@ -169,16 +168,14 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalcarouselLabel">Pilih Foto</h5>
+                                    <h5 class="modal-title" id="modalcarouselLabel">Input Carousel</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" name="foto">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
+                                        <label for="formFile" class="form-label">Pilih Foto</label>
+                                        <input class="form-control" type="file" name="foto" id="formFile">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -192,21 +189,29 @@
 
                 <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="modalaboutLabel"
                     aria-hidden="true">
-                    <form action="/carousel/upload" method="POST" enctype="multipart/form-data">
+                    <form action="/about/upload" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalaboutLabel">Pilih Foto</h5>
+                                    <h5 class="modal-title" id="modalaboutLabel">Konten About</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" name="foto">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
-                                        </div>
+                                        <label for="formFile" class="form-label">Pilih Foto</label>
+                                        <input class="form-control" type="file" name="image" id="formFile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Client</label>
+                                        <input type="number" class="form-control" id="exampleFormControlInput1"
+                                            name="client" placeholder="1234">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
