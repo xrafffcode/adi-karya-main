@@ -2,10 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarouselController;
-use App\Models\About;
-use App\Models\Carousel;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +17,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    $about = About::get();
-    $gambar = Carousel::get();
-    
-    return view('home', [
-        'gambar' => $gambar,
-        'about' => $about
-    ]);
+Route::get('/', HomeController::class . '@index');
+
+Route::get('/about', function(){
+    return view('about');
 });
+
+
 
 Route::get('/login', function(){
     return view('auth.login');
@@ -37,7 +35,12 @@ Route::post('/carousel/upload', AdminController::class . '@proses_upload_carouse
 Route::get('/carousel/hapus/{id_foto}', AdminController::class . '@hapus_carousel');
 
 Route::post('/about/upload', AdminController::class . '@proses_upload_about');
+Route::get('/about_edit/{id}', AdminController::class . '@edit_about');
+Route::post('/about/update', AdminController::class . '@update_about');
+
+Route::post('/pemilik/upload', AdminController::class . '@proses_upload_pemilik');
+Route::get('/pemilik/hapus/{id}', AdminController::class . '@hapus_pemilik');
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

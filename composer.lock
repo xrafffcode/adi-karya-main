@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf14086919a839fe740e00554e4baff6",
+    "content-hash": "6e7e8f59df63a3befc2fc95211b759fe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2908,6 +2908,63 @@
                 }
             ],
             "time": "2021-09-25T23:10:38+00:00"
+        },
+        {
+            "name": "sarfraznawaz2005/visitlog",
+            "version": "1.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sarfraznawaz2005/visitlog.git",
+                "reference": "e4289985fda955a427da347e47bd0ed77704d5a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sarfraznawaz2005/visitlog/zipball/e4289985fda955a427da347e47bd0ed77704d5a6",
+                "reference": "e4289985fda955a427da347e47bd0ed77704d5a6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5|~6|~7|~8",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Sarfraznawaz2005\\VisitLog\\VisitLogServiceProvider"
+                    ],
+                    "aliases": {
+                        "VisitLog": "Sarfraznawaz2005\\VisitLog\\Facades\\VisitLog"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sarfraznawaz2005\\VisitLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sarfraz Ahmed",
+                    "email": "sarfraznawaz2005@gmail.com"
+                }
+            ],
+            "description": "Laravel package to log visitor information into database.",
+            "keywords": [
+                "IP",
+                "laravel",
+                "log",
+                "visitor"
+            ],
+            "support": {
+                "issues": "https://github.com/sarfraznawaz2005/visitlog/issues",
+                "source": "https://github.com/sarfraznawaz2005/visitlog/tree/1.3.4"
+            },
+            "time": "2020-09-24T06:16:04+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7959,5 +8016,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

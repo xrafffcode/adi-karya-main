@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\About;
+use App\Models\Carousel;
+use App\Models\Pemilik;
+use Sarfraznawaz2005\VisitLog\Facades\VisitLog;
 
 class HomeController extends Controller
 {
@@ -13,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     /**
@@ -23,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $about = About::get();
+        $gambar = Carousel::get();
+        $pemilik = Pemilik::get();
+        VisitLog::save();
+
+        return view('home', [
+            'gambar' => $gambar,
+            'about' => $about,
+            'pemilik' => $pemilik,
+        ]);
     }
 }

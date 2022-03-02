@@ -8,12 +8,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard v2</h1>
+                        <h1 class="m-0">Dashboard Adi Karya</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v2</li>
+                            <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard Adi Karya</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -28,13 +28,12 @@
                 <div class="row">
                     <div class="col-12 col-sm-6">
                         <div class="info-box">
-                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-eye"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">CPU Traffic</span>
+                                <span class="info-box-text">Penggunjung</span>
                                 <span class="info-box-number">
-                                    10
-                                    <small>%</small>
+                                    {{ $visitor->count() }}
                                 </span>
                             </div>
                             <!-- /.info-box-content -->
@@ -87,79 +86,13 @@
                     <!-- /.col -->
                 </div>
 
-                <h1>Foto Carousel</h1>
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($gambar as $g)
-                            <tr>
-                                <td>{{ $g->id_foto }}</td>
-                                <td><img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" width="500">
-                                </td>
-                                <td>
-                                    <a href="/carousel/hapus/{{ $g->id_foto }}"><button
-                                            class="btn btn-danger">Hapus</button></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                @include('admin.partials.carousel')
 
-                </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalcarousel">
-                    Tambah Foto
-                </button>
+                @include('admin.partials.about')
 
-                <h1 class="mt-5">Konten About</h1>
-                <table class="table table-dark table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">Foto</th>
-                            <th scope="col">Deskripsi</th>
-                            <th scope="col">Client</th>
-                            <th scope="col">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($about as $a)
-                            <tr>
-                                <td><img class="img-fluid" src="{{ url('/foto_about/' . $a->image) }}" width="300">
-                                </td>
-                                <td>{{ $a->deskripsi }}</td>
-                                <td>{{ $a->client }}</td>
-                                <td>
-                                    <a href="/edit/"><button class="btn btn-success">Edit</button></a>
-                                    <a href="/carousel/hapus/{{ $g->id_foto }}"><button
-                                            class="btn btn-danger">Hapus</button></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
+                @include('admin.partials.pemilik')
 
-                </table>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalabout">
-                    Tambah Konten
-                </button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                @include('admin.partials.testimoni')
 
                 <div class="modal fade" id="modalcarousel" tabindex="-1" aria-labelledby="modalcarouselLabel"
                     aria-hidden="true">
@@ -212,6 +145,41 @@
                                         <label for="exampleFormControlInput1" class="form-label">Client</label>
                                         <input type="number" class="form-control" id="exampleFormControlInput1"
                                             name="client" placeholder="1234">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Upload" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal fade" id="modalpemilik" tabindex="-1" aria-labelledby="modalaboutLabel"
+                    aria-hidden="true">
+                    <form action="/pemilik/upload" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalaboutLabel">Konten Pemilik</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Pilih Foto</label>
+                                        <input class="form-control" type="file" name="image" id="formFile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama"
+                                            placeholder="Joni">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Posisi</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            name="posisi" placeholder="pegawai">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
