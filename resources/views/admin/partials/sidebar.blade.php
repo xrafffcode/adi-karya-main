@@ -39,11 +39,43 @@
                      </ul>
                  </li>
                  <li class="nav-item">
-                     <a href="/about" class="nav-link">
-                         <i class="nav-icon fas fa-th"></i>
+                     <a href="/admin" class=" nav-link {{ Request::url() == url('/admin') ? 'active' : ' ' }}">
+                         <i class="nav-icon fas fa-home"></i>
                          <p>
-                             Widgets
-                             <span class="right badge badge-danger">New</span>
+                             Dashboard
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/admin/carousel"
+                         class="nav-link {{ Request::url() == url('/admin/carousel') ? 'active' : ' ' }}">
+                         <i class="nav-icon fas fa-images"></i>
+                         <p>
+                             Carousel
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/admin/carousel" class="nav-link">
+                         <i class="nav-icon fas fa-info"></i>
+                         <p>
+                             About
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/admin/carousel" class="nav-link">
+                         <i class="nav-icon fas fa-users"></i>
+                         <p>
+                             Pemilik
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
+                     <a href="/admin/carousel" class="nav-link">
+                         <i class="nav-icon fas fa-comment"></i>
+                         <p>
+                             Testimoni
                          </p>
                      </a>
                  </li>

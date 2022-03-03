@@ -86,7 +86,6 @@
                     <!-- /.col -->
                 </div>
 
-                @include('admin.partials.carousel')
 
                 @include('admin.partials.about')
 
@@ -94,30 +93,6 @@
 
                 @include('admin.partials.testimoni')
 
-                <div class="modal fade" id="modalcarousel" tabindex="-1" aria-labelledby="modalcarouselLabel"
-                    aria-hidden="true">
-                    <form action="/carousel/upload" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalcarouselLabel">Input Carousel</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Pilih Foto</label>
-                                        <input class="form-control" type="file" name="foto" id="formFile">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" value="Upload" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
 
 
                 <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="modalaboutLabel"
@@ -180,6 +155,47 @@
                                         <label for="exampleFormControlInput1" class="form-label">Posisi</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             name="posisi" placeholder="pegawai">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Upload" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="modal fade" id="modaltestimoni" tabindex="-1" aria-labelledby="modalaboutLabel"
+                    aria-hidden="true">
+                    <form action="/testimoni/upload" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalaboutLabel">Input Testimoni</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Pilih Foto</label>
+                                        <input class="form-control" type="file" name="image" id="formFile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Testimoni</label>
+                                        <textarea type="text" class="form-control" id="exampleFormControlInput1"
+                                            name="testimoni" placeholder="Kualitas Disini Bagus"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama"
+                                            placeholder="Jojon">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Profesi</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            name="profesi" placeholder="pegawai">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

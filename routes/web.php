@@ -31,8 +31,9 @@ Route::get('/login', function(){
 
 Route::get('/admin', AdminController::class . '@index');
 
-Route::post('/carousel/upload', AdminController::class . '@proses_upload_carousel');
-Route::get('/carousel/hapus/{id_foto}', AdminController::class . '@hapus_carousel');
+Route::get('/admin/carousel', CarouselController::class . '@index');
+Route::post('/admin/carousel/upload', CarouselController::class . '@store');
+Route::get('/admin/carousel/hapus/{id_foto}', CarouselController::class . '@destroy');
 
 Route::post('/about/upload', AdminController::class . '@proses_upload_about');
 Route::get('/about_edit/{id}', AdminController::class . '@edit_about');
@@ -40,6 +41,8 @@ Route::post('/about/update', AdminController::class . '@update_about');
 
 Route::post('/pemilik/upload', AdminController::class . '@proses_upload_pemilik');
 Route::get('/pemilik/hapus/{id}', AdminController::class . '@hapus_pemilik');
+
+Route::post('/testimoni/upload', AdminController::class . '@proses_upload_testimoni');
 
 
 Auth::routes();
