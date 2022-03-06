@@ -9,16 +9,18 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8 text-center">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">Selamat Datang Di Adi
-                                    Karya
+                                <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                                    @lang('home.welcome')
                                 </h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Tempat terbaik mencari bahan
-                                    berkualitas</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Adi Karya menyediakan kayu-kayu
-                                    berkualitas,
-                                    yang didapatkan dari indonesia.</p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Beli
-                                    Produk</a>
+                                <h1 class="display-3 text-white animated slideInDown mb-4">
+                                    @lang('home.title')
+                                </h1>
+                                <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                    @lang('home.subtitle')
+                                </p>
+                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">
+                                    @lang('home.button_header')
+                                </a>
                             </div>
                         </div>
                     </div>

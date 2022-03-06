@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PemilikController;
+use App\Http\Controllers\TestimoniController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +37,12 @@ Route::get('/admin', AdminController::class . '@index');
 Route::get('/admin/carousel', CarouselController::class . '@index');
 Route::post('/admin/carousel/upload', CarouselController::class . '@store');
 Route::get('/admin/carousel/hapus/{id_foto}', CarouselController::class . '@destroy');
+
+Route::resource('admin/about', AboutController::class);
+
+Route::resource('admin/pemilik', PemilikController::class);
+
+Route::resource('admin/testimoni', TestimoniController::class);
 
 Route::post('/about/upload', AdminController::class . '@proses_upload_about');
 Route::get('/about_edit/{id}', AdminController::class . '@edit_about');

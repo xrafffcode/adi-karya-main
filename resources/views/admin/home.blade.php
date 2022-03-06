@@ -86,15 +86,6 @@
                     <!-- /.col -->
                 </div>
 
-
-                @include('admin.partials.about')
-
-                @include('admin.partials.pemilik')
-
-                @include('admin.partials.testimoni')
-
-
-
                 <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="modalaboutLabel"
                     aria-hidden="true">
                     <form action="/about/upload" method="POST" enctype="multipart/form-data">

@@ -232,7 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'VisitLog' => Sarfraznawaz2005\VisitLog\Facades\VisitLog::class,
-
+    
     ],
 
 ];

@@ -8,8 +8,6 @@
 
      <!-- Sidebar -->
      <div class="sidebar">
-
-
          <!-- Sidebar Menu -->
          <nav class="mt-2">
 
@@ -56,7 +54,8 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/admin/carousel" class="nav-link">
+                     <a href="{{ route('about.index') }}"
+                         class="nav-link {{ Request::url() == route('about.index') ? 'active' : ' ' }}">
                          <i class="nav-icon fas fa-info"></i>
                          <p>
                              About
@@ -64,7 +63,8 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/admin/carousel" class="nav-link">
+                     <a href="{{ route('pemilik.index') }}"
+                         class="nav-link  {{ Request::url() == route('pemilik.index') ? 'active' : ' ' }}">
                          <i class="nav-icon fas fa-users"></i>
                          <p>
                              Pemilik
@@ -72,7 +72,8 @@
                      </a>
                  </li>
                  <li class="nav-item">
-                     <a href="/admin/carousel" class="nav-link">
+                     <a href="{{ route('testimoni.index') }}"
+                         class="nav-link {{ Request::url() == route('testimoni.index') ? 'active' : ' ' }}">
                          <i class="nav-icon fas fa-comment"></i>
                          <p>
                              Testimoni
