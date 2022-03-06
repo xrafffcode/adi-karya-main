@@ -9,5 +9,5 @@ class About extends Model
 {
     protected $table = "about";
  
-    protected $fillable = ['image','deskripsi','client'];
+    protected $fillable = ['id','image','deskripsi','client'];
 }

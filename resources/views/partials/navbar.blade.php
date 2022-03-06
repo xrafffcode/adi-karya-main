@@ -8,10 +8,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link active">Home</a>
-            <a href="/about" class="nav-item nav-link">Tentang Kami</a>
-            <a href="service.html" class="nav-item nav-link">Produk</a>
-            <a href="contact.html" class="nav-item nav-link">Hubungi Kami</a>
+            <a href="/" class="nav-item nav-link {{ Request::url() == url('/') ? 'active' : ' ' }}">Home</a>
+            <a href="/about" class="nav-item nav-link {{ Request::url() == url('/about') ? 'active' : ' ' }}">About</a>
+            <a href="service.html" class="nav-item nav-link">Product</a>
+            <a href="contact.html" class="nav-item nav-link">Contact US</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bahasa</a>
                 <div class="dropdown-menu fade-up m-0">

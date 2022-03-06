@@ -62,7 +62,9 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        //
+        $about = About::where('id', $id)->first();
+
+        return view('admin.edit_about', ['about'=>$about]);
     }
 
     /**

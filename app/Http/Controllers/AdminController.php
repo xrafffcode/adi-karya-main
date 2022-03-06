@@ -59,34 +59,24 @@ class AdminController extends Controller
 		$image->move($tujuan_upload,$image->getClientOriginalName());
     }
 
-	public function edit_about($id){
-		$about = About::where('id',$id)->get();
-        return view('admin.edit_about', ['about'=>$about]);
-	}
+
 
 	public function update_about(Request $request){
 
-		if($request->hasFile('image')){
-			$this->validate($request, [
-				'image' => 'required|file|image|mimes:jpeg,png,jpg',
-				'deskripsi' => 'required',
-				'client' => 'required'	
-			]);
-
-			$image = $request->file('image');
-			$nama_foto = time()."_".$image->getClientOriginalName();
-			$tujuan_upload = 'foto_about';
-			$image->move($tujuan_upload,$nama_foto);
+			// $image = $request->file('image');
+			// $nama_foto = time()."_".$image->getClientOriginalName();
+			// $tujuan_upload = 'foto_about';
+			// $image->move($tujuan_upload,$nama_foto);
 
 			DB::table('about')->where('id',$request->id)->update([
-				'image' => $nama_foto,
+				// 'image' => $nama_foto,
 				'deskripsi' => $request->deskripsi,
 				'client' => $request->client
 			]);
 		
-		}
+		
 
-		return redirect()->action(AdminController::class.'@index');
+		return redirect()->back();
 
 	}
 

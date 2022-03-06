@@ -6,6 +6,8 @@ use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PemilikController;
 use App\Http\Controllers\TestimoniController;
+use App\Models\About;
+use App\Models\Pemilik;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,7 +25,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', HomeController::class . '@index');
 
 Route::get('/about', function(){
-    return view('about');
+
+    $about = About::get();
+    $pemilik = Pemilik::get();
+
+    return view('about',[
+        'about' => $about,
+        'pemilik' => $pemilik,
+    ]);
 });
 
 
@@ -45,7 +54,6 @@ Route::resource('admin/pemilik', PemilikController::class);
 Route::resource('admin/testimoni', TestimoniController::class);
 
 Route::post('/about/upload', AdminController::class . '@proses_upload_about');
-Route::get('/about_edit/{id}', AdminController::class . '@edit_about');
 Route::post('/about/update', AdminController::class . '@update_about');
 
 Route::post('/pemilik/upload', AdminController::class . '@proses_upload_pemilik');

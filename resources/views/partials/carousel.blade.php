@@ -10,16 +10,16 @@
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8 text-center">
                                 <h5 class="text-white text-uppercase mb-3 animated slideInDown">
-                                    @lang('home.welcome')
+                                    @lang('home.carousel.welcome')
                                 </h5>
                                 <h1 class="display-3 text-white animated slideInDown mb-4">
-                                    @lang('home.title')
+                                    @lang('home.carousel.title')
                                 </h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">
-                                    @lang('home.subtitle')
+                                    @lang('home.carousel.subtitle')
                                 </p>
                                 <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">
-                                    @lang('home.button_header')
+                                    @lang('home.carousel.button_header')
                                 </a>
                             </div>
                         </div>

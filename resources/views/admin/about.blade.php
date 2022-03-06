@@ -24,7 +24,7 @@
                                 <td>{{ $a->deskripsi }}</td>
                                 <td>{{ $a->client }}</td>
                                 <td>
-                                    <a href="/about_edit/{{ $a->id }}"><button
+                                    <a href="{{ route('about.edit', $a->id) }}"><button
                                             class="btn btn-success">Edit</button></a>
                                     <a href="/carousel/hapus/"><button class="btn btn-danger">Hapus</button></a>
                                 </td>
