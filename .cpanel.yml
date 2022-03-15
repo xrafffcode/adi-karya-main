@@ -1,0 +1,22 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/adikarya/public_html/
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R bootstrap $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
+    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R routes $DEPLOYPATH
+    - /bin/cp -R storage $DEPLOYPATH
+    - /bin/cp -R tests $DEPLOYPATH
+    - /bin/cp -R vendor $DEPLOYPATH
+    - /bin/cp .editorconfig $DEPLOYPATH
+    - /bin/cp .artisan $DEPLOYPATH
+    - /bin/cp .composer.json $DEPLOYPATH
+    - /bin/cp .composer.lock $DEPLOYPATH
+    - /bin/cp .package.json $DEPLOYPATH
+    - /bin/cp .phpunit.xml $DEPLOYPATH
+    - /bin/cp .server.php $DEPLOYPATH
+    - /bin/cp .webpack.mix.js $DEPLOYPATH

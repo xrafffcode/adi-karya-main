@@ -17,4 +17,7 @@ return [
         "subtitle" => "Pelanggan",
         "button" => "Lebih Lanjut",
     ],
+    "product" => [
+        
+    ]
 ];
