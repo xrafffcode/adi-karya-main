@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Carousel;
+use App\Models\Contact;
 use App\Models\Pemilik;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
@@ -24,6 +25,7 @@ class AdminController extends Controller
 		$pemilik = Pemilik::get();
 		$testimoni = Testimoni::get();
 		$visitLogs = VisitLog::all();
+		$contact = Contact::all();
 
         return view('admin.home', [
             'gambar' => $gambar,
@@ -31,54 +33,12 @@ class AdminController extends Controller
 			'pemilik' => $pemilik,
 			'testimoni' => $testimoni,
 			'visitor' => $visitLogs,
+			'contact' => $contact
         ]);
     }
 
-    public function proses_upload_about(Request $request){
-        $this->validate($request, [
-			'image' => 'required|file|image|mimes:jpeg,png,jpg',
-            'deskripsi' => 'required',
-            'client' => 'required'	
-		]);
-
-        $image = $request->file('image');
- 
-		$nama_foto = time()."_".$image->getClientOriginalName();
- 
-    	// isi dengan nama folder tempat kemana file diupload
-		$tujuan_upload = 'foto_about';
-		$image->move($tujuan_upload,$nama_foto);
- 
-		About::create([
-			'image' => $nama_foto,
-            'deskripsi' => $request->deskripsi,
-            'client' => $request->client	
-		]);
- 
-		return redirect()->back();
-		$image->move($tujuan_upload,$image->getClientOriginalName());
-    }
 
 
-
-	public function update_about(Request $request){
-
-			// $image = $request->file('image');
-			// $nama_foto = time()."_".$image->getClientOriginalName();
-			// $tujuan_upload = 'foto_about';
-			// $image->move($tujuan_upload,$nama_foto);
-
-			DB::table('about')->where('id',$request->id)->update([
-				// 'image' => $nama_foto,
-				'deskripsi' => $request->deskripsi,
-				'client' => $request->client
-			]);
-		
-		
-
-		return redirect()->back();
-
-	}
 
 	public function hapus_about($id){
 		$about = About::where('id',$id)->first();
@@ -111,7 +71,7 @@ class AdminController extends Controller
 		]);
  
 		return redirect()->back();
-		$image->move($tujuan_upload,$image->getClientOriginalName());
+
     }
 
 	public function hapus_pemilik($id){

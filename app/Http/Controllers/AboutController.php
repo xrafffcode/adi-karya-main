@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AboutController extends Controller
 {
@@ -40,7 +41,28 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+			'image' => 'required|file|image|mimes:jpeg,png,jpg',
+            'deskripsi' => 'required',
+            'client' => 'required'	
+		]);
+
+        $image = $request->file('image');
+ 
+		$nama_foto = time()."_".$image->getClientOriginalName();
+ 
+    	// isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'foto_about';
+		$image->move($tujuan_upload,$nama_foto);
+ 
+		About::create([
+			'image' => $nama_foto,
+            'deskripsi' => $request->deskripsi,
+            'client' => $request->client	
+		]);
+ 
+		return redirect()->back();
+		$image->move($tujuan_upload,$image->getClientOriginalName());
     }
 
     /**
@@ -76,7 +98,20 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      		// $image = $request->file('image');
+			// $nama_foto = time()."_".$image->getClientOriginalName();
+			// $tujuan_upload = 'foto_about';
+			// $image->move($tujuan_upload,$nama_foto);
+
+			DB::table('about')->where('id',$request->id)->update([
+				// 'image' => $nama_foto,
+				'deskripsi' => $request->deskripsi,
+				'client' => $request->client
+			]);
+		
+		
+
+		return redirect()->back();
     }
 
     /**

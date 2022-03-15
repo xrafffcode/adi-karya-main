@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary py-3 px-5">Explore More</a>
+                        <a href="" class="btn btn-primary py-3 px-5"> @lang('home.about.button')</a>
                     </div>
                 </div>
             </div>

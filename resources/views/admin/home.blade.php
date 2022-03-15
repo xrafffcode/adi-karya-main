@@ -43,11 +43,11 @@
                     <!-- /.col -->
                     <div class="col-12 col-sm-6">
                         <div class="info-box mb-3">
-                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-comment"></i></span>
 
                             <div class="info-box-content">
-                                <span class="info-box-text">Likes</span>
-                                <span class="info-box-number">41,410</span>
+                                <span class="info-box-text">Pesan</span>
+                                <span class="info-box-number">{{ $contact->count() }}</span>
                             </div>
                             <!-- /.info-box-content -->
                         </div>
@@ -57,145 +57,40 @@
 
                     <!-- fix for small devices only -->
                     <div class="clearfix hidden-md-up"></div>
-
-                    <div class="col-12 col-sm-6">
-                        <div class="info-box mb-3">
-                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Sales</span>
-                                <span class="info-box-number">760</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-12 col-sm-6">
-                        <div class="info-box mb-3">
-                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">New Members</span>
-                                <span class="info-box-number">2,000</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
                     <!-- /.col -->
                 </div>
+            </div>
+            <!--/. container-fluid -->
+        </section>
 
-                <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="modalaboutLabel"
-                    aria-hidden="true">
-                    <form action="/about/upload" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalaboutLabel">Konten About</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Pilih Foto</label>
-                                        <input class="form-control" type="file" name="image" id="formFile">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi"
-                                            rows="3"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Client</label>
-                                        <input type="number" class="form-control" id="exampleFormControlInput1"
-                                            name="client" placeholder="1234">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" value="Upload" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <section class="content">
+            <div class="container-fluid">
+                <h1 class="mt-5">Pesan</h1>
+                <table class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Pesan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($contact as $c)
+                            <tr>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $c->nama }}</td>
+                                <td>{{ $c->email }}</td>
+                                <td>{{ $c->subject }}</td>
+                                <td>{{ $c->pesan }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
 
-                <div class="modal fade" id="modalpemilik" tabindex="-1" aria-labelledby="modalaboutLabel"
-                    aria-hidden="true">
-                    <form action="/pemilik/upload" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalaboutLabel">Konten Pemilik</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Pilih Foto</label>
-                                        <input class="form-control" type="file" name="image" id="formFile">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama"
-                                            placeholder="Joni">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Posisi</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            name="posisi" placeholder="pegawai">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" value="Upload" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                </table>
 
 
-                <div class="modal fade" id="modaltestimoni" tabindex="-1" aria-labelledby="modalaboutLabel"
-                    aria-hidden="true">
-                    <form action="/testimoni/upload" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalaboutLabel">Input Testimoni</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3">
-                                        <label for="formFile" class="form-label">Pilih Foto</label>
-                                        <input class="form-control" type="file" name="image" id="formFile">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Testimoni</label>
-                                        <textarea type="text" class="form-control" id="exampleFormControlInput1"
-                                            name="testimoni" placeholder="Kualitas Disini Bagus"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama"
-                                            placeholder="Jojon">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Profesi</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                                            name="profesi" placeholder="pegawai">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" value="Upload" class="btn btn-primary">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
             <!--/. container-fluid -->
         </section>

@@ -12,4 +12,9 @@ return [
         "three" => "Free Consultation",
         "four" => "Buyer Help",
     ],
+     "about" => [
+        "title" => "About Us",
+        "subtitle" => "Customer",
+        "button" => "Explore More",
+    ],
 ];

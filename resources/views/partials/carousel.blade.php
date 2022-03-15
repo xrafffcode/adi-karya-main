@@ -18,7 +18,8 @@
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">
                                     @lang('home.carousel.subtitle')
                                 </p>
-                                <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">
+                                <a href="https://api.whatsapp.com/send?phone=6288806929160&text=Hallo%20Adi%20Karya,%20I%20want%20to%20buy%20your%20product"
+                                    target="_blank" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">
                                     @lang('home.carousel.button_header')
                                 </a>
                             </div>

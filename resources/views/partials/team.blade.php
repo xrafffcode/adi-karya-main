@@ -4,7 +4,7 @@
         <div class="section-title text-center">
             <h1 class="display-5 mb-5">Tim</h1>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-md-center">
             @foreach ($pemilik as $p)
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">

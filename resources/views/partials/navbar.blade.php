@@ -10,8 +10,10 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="/" class="nav-item nav-link {{ Request::url() == url('/') ? 'active' : ' ' }}">Home</a>
             <a href="/about" class="nav-item nav-link {{ Request::url() == url('/about') ? 'active' : ' ' }}">About</a>
-            <a href="service.html" class="nav-item nav-link">Product</a>
-            <a href="contact.html" class="nav-item nav-link">Contact US</a>
+            <a href="/product"
+                class="nav-item nav-link {{ Request::url() == url('/product') ? 'active' : ' ' }}">Product</a>
+            <a href="/contact"
+                class="nav-item nav-link {{ Request::url() == url('/contact') ? 'active' : ' ' }}">Contact US</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bahasa</a>
                 <div class="dropdown-menu fade-up m-0">

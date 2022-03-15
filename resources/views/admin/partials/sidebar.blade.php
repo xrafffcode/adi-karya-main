@@ -54,6 +54,15 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="{{ route('product.index') }}"
+                         class="nav-link {{ Request::url() == route('product.index') ? 'active' : ' ' }}">
+                         <i class="nav-icon fas fa-shopping-cart"></i>
+                         <p>
+                             Produk
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="{{ route('about.index') }}"
                          class="nav-link {{ Request::url() == route('about.index') ? 'active' : ' ' }}">
                          <i class="nav-icon fas fa-info"></i>

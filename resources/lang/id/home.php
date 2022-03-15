@@ -12,5 +12,9 @@ return [
         "three" => "Konsultasi Gratis",
         "four" => "Bantuan Pembeli",
     ],
-	
+    "about" => [
+        "title" => "Tentang Kami",
+        "subtitle" => "Pelanggan",
+        "button" => "Lebih Lanjut",
+    ],
 ];

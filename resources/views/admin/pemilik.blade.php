@@ -37,7 +37,40 @@
                     Tambah Pemilik
                 </button>
 
-
+                <div class="modal fade" id="modalpemilik" tabindex="-1" aria-labelledby="modalaboutLabel"
+                    aria-hidden="true">
+                    <form action="/pemilik/upload" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalaboutLabel">Konten Pemilik</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Pilih Foto</label>
+                                        <input class="form-control" type="file" name="image" id="formFile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlTextarea1" class="form-label">Nama</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama"
+                                            placeholder="Joni">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Posisi</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1"
+                                            name="posisi" placeholder="pegawai">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" value="Upload" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
             </div>
             <!--/. container-fluid -->

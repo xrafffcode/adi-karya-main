@@ -16,9 +16,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Produk</h4>
-                <a class="btn btn-link" href="">General Carpentry</a>
-                <a class="btn btn-link" href="">Furniture Remodeling</a>
-                <a class="btn btn-link" href="">Wooden Floor</a>
+                @foreach ($produk as $p)
+                    <a class="btn btn-link" href="/produk/{{ $p->id }}">{{ $p->nama_produk }}</a>
+                @endforeach
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Tautan</h4>

@@ -3,13 +3,17 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CarouselController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PemilikController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestimoniController;
 use App\Models\About;
 use App\Models\Pemilik;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Sarfraznawaz2005\VisitLog\Facades\VisitLog;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +39,23 @@ Route::get('/about', function(){
     ]);
 });
 
+Route::get('/product', function(){
+    VisitLog::save();
+    $produk = DB::table('produk')->get();
+
+    return view('product',[
+        'produk' => $produk,
+    ]);
+});
+
+Route::get('/contact', function(){
+    VisitLog::save();
+
+    return view('contact');
+});
+
+
+Route::resource('contactus', ContactUsController::class);
 
 
 Route::get('/login', function(){
@@ -48,13 +69,18 @@ Route::post('/admin/carousel/upload', CarouselController::class . '@store');
 Route::get('/admin/carousel/hapus/{id_foto}', CarouselController::class . '@destroy');
 
 Route::resource('admin/about', AboutController::class);
+Route::post('/about/upload', AboutController::class . '@store');
+Route::post('/about/update', AboutController::class . '@update');
 
 Route::resource('admin/pemilik', PemilikController::class);
 
 Route::resource('admin/testimoni', TestimoniController::class);
 
-Route::post('/about/upload', AdminController::class . '@proses_upload_about');
-Route::post('/about/update', AdminController::class . '@update_about');
+Route::resource('admin/product', ProductController::class);
+Route::get('/admin/produk/hapus/{id}', ProductController::class . '@destroy');
+
+Route::get('/produk/{nama_produk}', ProductController::class . '@show');
+
 
 Route::post('/pemilik/upload', AdminController::class . '@proses_upload_pemilik');
 Route::get('/pemilik/hapus/{id}', AdminController::class . '@hapus_pemilik');
