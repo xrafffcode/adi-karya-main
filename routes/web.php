@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestimoniController;
 use App\Models\About;
 use App\Models\Pemilik;
+use App\Models\Produk;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,10 +33,12 @@ Route::get('/about', function(){
 
     $about = About::get();
     $pemilik = Pemilik::get();
+    $produk = Produk::get();
 
     return view('about',[
         'about' => $about,
         'pemilik' => $pemilik,
+        'produk' => $produk
     ]);
 });
 
@@ -50,8 +53,11 @@ Route::get('/product', function(){
 
 Route::get('/contact', function(){
     VisitLog::save();
+    $produk = Produk::get();
 
-    return view('contact');
+    return view('contact',[
+        'produk' => $produk,
+    ]);
 });
 
 
