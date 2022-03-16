@@ -28,7 +28,7 @@
                 <form action="/about/update" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input class="form-control" type="hidden" name="id" id="id" value="{{ $about->id }}">
-                    <img class="img-fluid mb-3" src="{{ url('/foto_about/' . $about->image) }}" width="500">
+                    <img class="img-fluid mb-3" src="{{ asset('/foto_about/' . $about->image) }}" width="500">
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Ganti Foto</label>
                         <input class="form-control" type="file" name="image">

@@ -18,7 +18,8 @@
                     <tbody>
                         @foreach ($pemilik as $p)
                             <tr>
-                                <td><img class="img-fluid" src="{{ url('/foto_pemilik/' . $p->image) }}" width="300">
+                                <td><img class="img-fluid" src="{{ asset('/foto_pemilik/' . $p->image) }}"
+                                        width="300">
                                 </td>
                                 <td>{{ $p->nama }}</td>
                                 <td>{{ $p->posisi }}</td>

@@ -18,7 +18,8 @@
                         @foreach ($gambar as $g)
                             <tr>
                                 <td>{{ $g->id_foto }}</td>
-                                <td><img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" width="500">
+                                <td><img class="img-fluid" src="{{ asset('/foto_carousel/' . $g->foto) }}"
+                                        width="500">
                                 </td>
                                 <td>
                                     <a href="/admin/carousel/hapus/{{ $g->id_foto }}"><button

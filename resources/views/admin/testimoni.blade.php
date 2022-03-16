@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach ($testimoni as $t)
                             <tr>
-                                <td><img class="img-fluid" src="{{ url('/foto_testimoni/' . $t->image) }}"
+                                <td><img class="img-fluid" src="{{ asset('/foto_testimoni/' . $t->image) }}"
                                         width="300">
                                 </td>
                                 <td>{{ $t->testimoni }}</td>
@@ -57,8 +57,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Testimoni</label>
-                                        <textarea type="text" class="form-control" id="exampleFormControlInput1"
-                                            name="testimoni" placeholder="Kualitas Disini Bagus"></textarea>
+                                        <textarea type="text" class="form-control" id="exampleFormControlInput1" name="testimoni"
+                                            placeholder="Kualitas Disini Bagus"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Nama</label>

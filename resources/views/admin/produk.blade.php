@@ -25,21 +25,21 @@
                                 <td>{{ $p->nama_produk }}</td>
                                 <td>{{ $p->deskripsi_produk }}</td>
                                 <td>
-                                    <img src="{{ url('/foto_produk/' . $p->gambar_1) }}" alt="{{ $p->nama_produk }}"
+                                    <img src="{{ asset('/foto_produk/' . $p->gambar_1) }}" alt="{{ $p->nama_produk }}"
                                         width="100px">
                                 </td>
                                 <td>
-                                    <img src="{{ url('/foto_produk/' . $p->gambar_2) }}" alt="{{ $p->nama_produk }}"
+                                    <img src="{{ asset('/foto_produk/' . $p->gambar_2) }}" alt="{{ $p->nama_produk }}"
                                         width="100px">
                                 </td>
                                 <td>
-                                    <img src="{{ url('/foto_produk/' . $p->gambar_3) }}" alt="{{ $p->nama_produk }}"
+                                    <img src="{{ asset('/foto_produk/' . $p->gambar_3) }}" alt="{{ $p->nama_produk }}"
                                         width="100px">
                                 </td>
                                 <td>
-                                    <a href="{{ url('/admin/produk/' . $p->id . '/edit') }}"
+                                    <a href="{{ asset('/admin/produk/' . $p->id . '/edit') }}"
                                         class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="{{ url('/admin/produk/hapus/' . $p->id) }}"
+                                    <a href="{{ asset('/admin/produk/hapus/' . $p->id) }}"
                                         class="btn btn-danger btn-sm">Hapus
                                     </a>
 
@@ -72,8 +72,8 @@
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Deskripsi
                                             Produk</label>
-                                        <textarea type="text" class="form-control" id="exampleFormControlInput1"
-                                            name="deskripsi_produk" placeholder="Ukuran 1 km"></textarea>
+                                        <textarea type="text" class="form-control" id="exampleFormControlInput1" name="deskripsi_produk"
+                                            placeholder="Ukuran 1 km"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Gambar 1</label>

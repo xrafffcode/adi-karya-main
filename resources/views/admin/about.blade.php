@@ -19,7 +19,7 @@
                     <tbody>
                         @foreach ($about as $a)
                             <tr>
-                                <td><img class="img-fluid" src="{{ url('/foto_about/' . $a->image) }}" width="300">
+                                <td><img class="img-fluid" src="{{ asset('/foto_about/' . $a->image) }}" width="300">
                                 </td>
                                 <td>{{ $a->deskripsi }}</td>
                                 <td>{{ $a->client }}</td>
@@ -55,8 +55,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Deskripsi</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi"
-                                            rows="3"></textarea>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" name="deskripsi" rows="3"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Client</label>
