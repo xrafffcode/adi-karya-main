@@ -11,6 +11,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Models\About;
 use App\Models\Pemilik;
 use App\Models\Produk;
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -93,6 +94,9 @@ Route::get('/pemilik/hapus/{id}', AdminController::class . '@hapus_pemilik');
 
 Route::post('/testimoni/upload', AdminController::class . '@proses_upload_testimoni');
 
-
+view()->composer('errors::*', function ($view) {
+    $produk = Produk::get();
+    $view->with('produk', $produk);
+});
 Auth::routes();
 
