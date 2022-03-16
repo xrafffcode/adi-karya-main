@@ -6,7 +6,7 @@
                 <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute img-fluid w-100 h-100"
-                            src="{{ url('/foto_about/' . $a->image) }}" style="object-fit: cover;" alt="">
+                            src="{{ asset('/foto_about/' . $a->image) }}" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">

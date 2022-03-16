@@ -7,7 +7,7 @@
         <div class="owl-carousel testimonial-carousel">
             @foreach ($testimoni as $t)
                 <div class="testimonial-item text-center">
-                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ url('/foto_testimoni/' . $t->image) }}"
+                    <img class="img-fluid bg-light p-2 mx-auto mb-3" src="{{ asset('/foto_testimoni/' . $t->image) }}"
                         style="width: 90px; height: 90px;">
                     <div class="testimonial-text text-center p-4">
                         <p>

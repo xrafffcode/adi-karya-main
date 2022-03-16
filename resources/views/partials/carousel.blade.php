@@ -3,7 +3,7 @@
     <div class="owl-carousel header-carousel position-relative">
         @foreach ($gambar as $g)
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ url('/foto_carousel/' . $g->foto) }}" alt="">
+                <img class="img-fluid" src="{{ asset('/foto_carousel/' . $g->foto) }}" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(53, 53, 53, .7);">
                     <div class="container">

@@ -62,7 +62,7 @@
              </div>
              <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                  <div class="position-relative h-100">
-                     <img class="position-absolute img-fluid w-100 h-100" src="img/feature.jpg"
+                     <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/feature.jpg') }}"
                          style="object-fit: cover;" alt="">
                  </div>
              </div>

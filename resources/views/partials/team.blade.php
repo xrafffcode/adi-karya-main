@@ -9,7 +9,7 @@
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item">
                         <div class="overflow-hidden position-relative">
-                            <img class="img-fluid" src="{{ url('/foto_pemilik/' . $p->image) }}" alt="">
+                            <img class="img-fluid" src="{{ asset('/foto_pemilik/' . $p->image) }}" alt="">
                         </div>
                         <div class="text-center border border-5 border-light border-top-0 p-4">
                             <h5 class="mb-0">{{ $p->nama }}</h5>

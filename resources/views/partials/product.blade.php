@@ -9,7 +9,7 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item">
                         <div class="overflow-hidden">
-                            <img class="img-fluid" src="{{ url('/foto_produk/' . $p->gambar_1) }}" alt="">
+                            <img class="img-fluid" src="{{ asset('/foto_produk/' . $p->gambar_1) }}" alt="">
                         </div>
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">{{ $p->nama_produk }}</h4>
