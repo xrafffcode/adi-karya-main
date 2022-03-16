@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adi Karya</title>
 
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="description"
+        content="Adikarya is the best place to find quality materials, at Karya provides quality wood, which is obtained from Indonesia">
+    <meta name="keywords" content="Adikarya, Wood, Material, Indonesia, Quality">
+    <meta name="author" content="Adikarya">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/logo.png') }} rel=" icon">
+    <link href="{{ asset('img/logo.png') }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
