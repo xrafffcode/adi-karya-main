@@ -23,8 +23,8 @@
             </div>
 
         </div>
-        <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Buy Product<i
-                class="fa fa-arrow-right ms-3"></i></a>
+        <a href="https://api.whatsapp.com/send?phone=6288806929160&text=Hallo%20Adi%20Karya,%20I%20want%20to%20buy%20your%20product"
+            class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Buy Product<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>
 <!-- Navbar End -->
